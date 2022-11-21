@@ -473,12 +473,13 @@ class MyModel(nn.Module):
         self.nhead=4
         self.num_layers=1
         self.afr_reduced_cnn_size=30
-
+        # feature
         self.feature=feature_extraction()
+        # attention
         self.linear0=nn.Sequential(nn.Linear(3000, 96), nn.ReLU(True))
         encoder_layer = nn.TransformerEncoderLayer(self.d_model, nhead=self.nhead, batch_first=True, activation="relu")
         self.transformer_encoder = nn.TransformerEncoder(encoder_layer, num_layers=self.num_layers)
-        # self.autoformer=Autoformer()
+        # classification
         self.linear1 = nn.Sequential(nn.Linear(2880, 32), nn.ReLU(True))
         self.linear2 = nn.Sequential(nn.Linear(32, 5), nn.Softmax(dim=1))
 
