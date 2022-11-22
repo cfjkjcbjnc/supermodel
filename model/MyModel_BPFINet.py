@@ -393,8 +393,8 @@ class MyModel(nn.Module):
         # x_final = self.linear2(x_final)
         # return x_final
 
-net=MyModel()
-net.eval()
-x=torch.rand((1,6,3000))
-y=net(x)
-print(y)
+# net=MyModel()
+# net.eval()
+# x=torch.rand((1,6,3000))
+# y=net(x)
+# print(y)
